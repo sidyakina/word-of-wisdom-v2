@@ -5,12 +5,13 @@ import (
 	"log"
 	"net"
 	"time"
-	"word-of-wisdom-v2/internal/general"
+	"word-of-wisdom-v2/internal/general/challenger"
+	"word-of-wisdom-v2/internal/general/tcp"
 )
 
 type Challenger interface {
-	GetChallenge() general.ChallengeInfo
-	ValidateSolution(challenge general.ChallengeInfo, solution string) bool
+	GetChallenge() challenger.ChallengeInfo
+	ValidateSolution(challenge challenger.ChallengeInfo, solution string) bool
 }
 
 type QuotesRepo interface {
@@ -26,7 +27,7 @@ type Server struct {
 }
 
 func New(port int32, connReadDeadline time.Duration, challenger Challenger, quotesRepo QuotesRepo) (*Server, error) {
-	listener, err := net.Listen("tcp", fmt.Sprintf(":%v", port))
+	listener, err := net.Listen(tcp.TCP, fmt.Sprintf(":%v", port))
 	if err != nil {
 		return nil, fmt.Errorf("failed to listen: %w", err)
 	}

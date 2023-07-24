@@ -7,7 +7,7 @@ type Challenge struct {
 }
 
 type Solution struct {
-	RandomString string `json:"random_string"`
+	Solution string `json:"solution"`
 }
 
 type Quote struct {

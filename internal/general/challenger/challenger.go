@@ -1,4 +1,4 @@
-package general
+package challenger
 
 type ChallengeInfo struct {
 	RandomString       string
