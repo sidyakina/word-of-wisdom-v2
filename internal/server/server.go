@@ -26,7 +26,7 @@ type Server struct {
 	connReadDeadline time.Duration
 }
 
-func New(port int32, connReadDeadline time.Duration, challenger Challenger, quotesRepo QuotesRepo) (*Server, error) {
+func New(port uint32, connReadDeadline time.Duration, challenger Challenger, quotesRepo QuotesRepo) (*Server, error) {
 	listener, err := net.Listen(tcp.TCP, fmt.Sprintf(":%v", port))
 	if err != nil {
 		return nil, fmt.Errorf("failed to listen: %w", err)
@@ -38,8 +38,6 @@ func New(port int32, connReadDeadline time.Duration, challenger Challenger, quot
 		quotesRepo:       quotesRepo,
 		connReadDeadline: connReadDeadline,
 	}
-
-	go server.Listen()
 
 	return server, nil
 }
