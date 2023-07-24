@@ -7,7 +7,7 @@ import (
 )
 
 type Config struct {
-	ServerURL       string        `env:"SERVER_URL"`
+	ServerURL       string        `env:"SERVER_URL" envDefault:"localhost:8080"`
 	ReadTimeout     time.Duration `env:"READ_TIMEOUT" envDefault:"2s"`
 	SolutionTimeout time.Duration `env:"SOLUTION_TIMEOUT" envDefault:"30s"`
 }

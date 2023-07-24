@@ -27,7 +27,7 @@ func (s *Server) HandleNewConnect(clientConn net.Conn) {
 
 	solution, err := s.waitSolution(clientConn)
 	if err != nil {
-		log.Printf("failed to send challenge: %v", err)
+		log.Printf("failed to receive solution: %v", err)
 
 		return
 	}

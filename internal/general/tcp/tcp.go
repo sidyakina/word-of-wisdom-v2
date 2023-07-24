@@ -28,7 +28,7 @@ func ReadWithDeadline(clientConn net.Conn, connReadDeadline time.Duration) ([]by
 	}
 
 	data := make([]byte, readDataBuffer)
-	_, err = clientConn.Read(data)
+	n, err := clientConn.Read(data)
 	if err != nil {
 		return nil, fmt.Errorf("failed to read data: %w", err)
 	}
@@ -39,5 +39,5 @@ func ReadWithDeadline(clientConn net.Conn, connReadDeadline time.Duration) ([]by
 		return nil, fmt.Errorf("failed to reset read deadline: %w", err)
 	}
 
-	return data, nil
+	return data[:n], nil
 }
