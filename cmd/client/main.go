@@ -21,6 +21,8 @@ func main() {
 	if err != nil {
 		log.Printf("failed to request quote: %v", err)
 	} else {
+		log.Printf("---------------------")
 		log.Printf("wisdom of the day: %v", quote)
+		log.Printf("---------------------")
 	}
 }

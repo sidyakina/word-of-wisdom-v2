@@ -4,6 +4,9 @@ linter:
 tests:
 	go test ./internal/...
 
+benchmark:
+	go test -bench=. ./internal/general/challenger/... -run=^#
+
 build: build-server build-client
 
 build-server:

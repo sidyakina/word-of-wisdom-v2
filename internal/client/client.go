@@ -120,7 +120,7 @@ func (c *Client) waitQuote(serverConn net.Conn) (string, error) {
 		return "", fmt.Errorf("failed to unmarshal quote %s: %w", data, err)
 	}
 
-	log.Printf("quote received: %+v", message.Quote)
+	log.Printf("quote received: %+v", message)
 
 	return message.Quote, nil
 }
