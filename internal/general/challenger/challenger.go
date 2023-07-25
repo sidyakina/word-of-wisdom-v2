@@ -27,6 +27,7 @@ func (c *Challenger) GetChallenge() ChallengeInfo {
 }
 
 func (c *Challenger) ValidateSolution(challenge ChallengeInfo, solution string) bool {
+	// all parameters get from challenge not from challenger because we can use range for zeros and length
 	if len(solution) != int(challenge.NumberSymbols) {
 		log.Printf("wrong number symbols in solution: %v, want: %v", len(solution), challenge.NumberSymbols)
 
