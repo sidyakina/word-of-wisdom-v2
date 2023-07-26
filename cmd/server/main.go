@@ -17,7 +17,7 @@ func main() {
 	}
 
 	challenger := challengerpkg.NewChallenger(
-		config.NumberZeroBits, config.LenChallengeString, config.LenSolutionString,
+		config.NumberZeroBits, config.ChallengeNumberSymbols, config.SolutionNumberSymbols,
 	)
 	quotes, err := quotesrepo.New()
 	if err != nil {

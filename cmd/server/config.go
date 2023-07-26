@@ -11,9 +11,9 @@ type Config struct {
 	// read timeout is big because client need time to generate solution
 	ReadSolutionTimeout time.Duration `env:"READ_SOLUTION_TIMEOUT" envDefault:"15s"`
 
-	LenChallengeString int32 `env:"LEN_CHALLENGE_STRING" envDefault:"20"`
-	LenSolutionString  int32 `env:"LEN_SOLUTION_STRING" envDefault:"10"`
-	NumberZeroBits     int32 `env:"NUMBER_ZERO_BITS" envDefault:"20"`
+	ChallengeNumberSymbols int32 `env:"CHALLENGE_NUMBER_SYMBOLS" envDefault:"20"`
+	SolutionNumberSymbols  int32 `env:"SOLUTION_NUMBER_SYMBOLS" envDefault:"10"`
+	NumberZeroBits         int32 `env:"NUMBER_ZERO_BITS" envDefault:"20"`
 }
 
 func parseConfig() (*Config, error) {
@@ -32,12 +32,12 @@ func parseConfig() (*Config, error) {
 		return nil, fmt.Errorf("wrong ReadSolutionTimeout %v", cfg.ReadSolutionTimeout)
 	}
 
-	if cfg.LenChallengeString <= 0 {
-		return nil, fmt.Errorf("wrong LenChallengeString %v", cfg.LenChallengeString)
+	if cfg.ChallengeNumberSymbols <= 0 {
+		return nil, fmt.Errorf("wrong ChallengeNumberSymbols %v", cfg.ChallengeNumberSymbols)
 	}
 
-	if cfg.LenSolutionString <= 0 {
-		return nil, fmt.Errorf("wrong LenSolutionString %v", cfg.LenSolutionString)
+	if cfg.SolutionNumberSymbols <= 0 {
+		return nil, fmt.Errorf("wrong SolutionNumberSymbols %v", cfg.SolutionNumberSymbols)
 	}
 
 	if cfg.NumberZeroBits <= 0 {
