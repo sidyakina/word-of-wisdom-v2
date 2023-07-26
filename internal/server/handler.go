@@ -53,9 +53,9 @@ func (s *Server) sendChallenge(clientConn net.Conn) (*challenger.ChallengeInfo, 
 	log.Printf("challenge for new connection: %+v", challenge)
 
 	message := api.Challenge{
-		RandomString:       challenge.RandomString,
-		NumberLeadingZeros: challenge.NumberLeadingZeros,
-		NumberSymbols:      challenge.NumberSymbols,
+		RandomString:          challenge.RandomString,
+		NumberLeadingZeros:    challenge.NumberLeadingZeros,
+		SolutionNumberSymbols: challenge.SolutionNumberSymbols,
 	}
 
 	data, err := json.Marshal(message)

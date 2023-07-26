@@ -9,7 +9,7 @@ import (
 type Config struct {
 	ServerURL       string        `env:"SERVER_URL" envDefault:"localhost:8080"`
 	ReadTimeout     time.Duration `env:"READ_TIMEOUT" envDefault:"2s"`
-	SolutionTimeout time.Duration `env:"SOLUTION_TIMEOUT" envDefault:"30s"`
+	SolutionTimeout time.Duration `env:"SOLUTION_TIMEOUT" envDefault:"10s"`
 }
 
 func parseConfig() (*Config, error) {
@@ -29,7 +29,7 @@ func parseConfig() (*Config, error) {
 	}
 
 	if cfg.SolutionTimeout <= 0 {
-		return nil, fmt.Errorf("wrong solution timeout %v", cfg.ReadTimeout)
+		return nil, fmt.Errorf("wrong solution timeout %v", cfg.SolutionTimeout)
 	}
 
 	return cfg, nil

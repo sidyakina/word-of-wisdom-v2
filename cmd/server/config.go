@@ -9,7 +9,7 @@ import (
 type Config struct {
 	Port uint32 `env:"PORT" envDefault:"8080"`
 	// read timeout is big because client need time to generate solution
-	ReadSolutionTimeout time.Duration `env:"READ_SOLUTION_TIMEOUT" envDefault:"40s"`
+	ReadSolutionTimeout time.Duration `env:"READ_SOLUTION_TIMEOUT" envDefault:"15s"`
 
 	LenChallengeString int32 `env:"LEN_CHALLENGE_STRING" envDefault:"20"`
 	LenSolutionString  int32 `env:"LEN_SOLUTION_STRING" envDefault:"10"`

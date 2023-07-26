@@ -1,9 +1,9 @@
 package api
 
 type Challenge struct {
-	RandomString       string `json:"random_string"`
-	NumberLeadingZeros int32  `json:"number_leading_zeros"`
-	NumberSymbols      int32  `json:"number_symbols"`
+	RandomString          string `json:"random_string"`
+	NumberLeadingZeros    int32  `json:"number_leading_zeros"`
+	SolutionNumberSymbols int32  `json:"solution_number_symbols"`
 }
 
 type Solution struct {

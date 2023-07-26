@@ -8,6 +8,6 @@ import (
 func TestNew(t *testing.T) {
 	repo, err := New()
 
-	assert.Nilf(t, err, "err must be nil, but: %v", err)
+	assert.Nilf(t, err, "err: %v", err)
 	assert.Len(t, repo.quotes, 33)
 }

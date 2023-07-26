@@ -70,8 +70,8 @@ cpu: 11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz
 
 Algorithm based on HashCash algorithm (https://en.wikipedia.org/wiki/Hashcash) but have several differences:
 
-• SHA2 was used instead of SHA1, because SHA1 is a cryptographically broken. SHA2 take more time for generate hash and, in our case it is benefit, because it adds more time difficulty for solve challenge.
-• HashCash is using mail info for challenge, but we haven't such info for our client. Random string is using instead.
+• SHA2 was used instead of SHA1, because SHA1 is a cryptographically broken. SHA2 take more time for generate hash and in our case it is benefit, because it adds more time difficulty for solve challenge.
+• HashCash uses email info for challenge, but we haven't such info for our client. Random string is used instead.
 
 Algorithm steps:
 
@@ -80,7 +80,7 @@ Algorithm steps:
 ```
     numberLeadingZeros(SHA2(server_random_string + solution)) == numberLeadingZeros
 ```
-3. Server validate `solution` against this condition and check number symbols. Types of symbols aren't checked because it isn't matter which symbols client used (it doesn't affect generation time) 
+3. Server validate `solution` against this condition and check length of string. Types of symbols aren't checked because it isn't matter which symbols client used (it doesn't affect generation time) 
 
 Current values: `challengeNumberSymbols`=20, `solutionNumberSymbols`=10, `numberLeadingZeros`=20
 
@@ -90,7 +90,7 @@ For 20 leading zeros it will take 64^20 * 0.9s (if made without concurrency). If
 
 We can also make it more difficult but randomizing `solutionNumberSymbols` in some range instead of predefined number of symbols.
 It won't significantly change solution generation time (for example: 5 symbols takes approximately 0.8s, 20 symbols takes 0.9s), 
-but will increase server string variant number in several times.
+but will increase number of server string variants in several times.
 
 Also, we can randomize `numberLeadingZeros`, but it will affect generation time, 
 so if we request too many zeros, client couldn't make it in time (`READ_SOLUTION_TIMEOUT` can be changed to wait less or more seconds for solution).

@@ -9,9 +9,9 @@ import (
 )
 
 type ChallengeInfo struct {
-	RandomString       string
-	NumberLeadingZeros int32
-	NumberSymbols      int32
+	RandomString          string
+	NumberLeadingZeros    int32
+	SolutionNumberSymbols int32
 }
 
 const symbols = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"

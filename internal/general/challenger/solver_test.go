@@ -39,14 +39,14 @@ func BenchmarkSolveChallenge_20zeros_20symbols(b *testing.B) {
 	benchmarkSolveChallenge(20, 20, b)
 }
 
-func benchmarkSolveChallenge(numberLeadingZeros, numberSymbols int32, b *testing.B) {
+func benchmarkSolveChallenge(numberLeadingZeros, solutionNumberSymbols int32, b *testing.B) {
 	log.SetOutput(io.Discard)
 
 	solver := NewSolver(time.Hour)
 	challenge := ChallengeInfo{
-		RandomString:       "randomstring",
-		NumberLeadingZeros: numberLeadingZeros,
-		NumberSymbols:      numberSymbols,
+		RandomString:          "randomstring",
+		NumberLeadingZeros:    numberLeadingZeros,
+		SolutionNumberSymbols: solutionNumberSymbols,
 	}
 
 	for i := 0; i < b.N; i++ {

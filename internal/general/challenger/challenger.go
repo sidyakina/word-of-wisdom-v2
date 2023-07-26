@@ -20,16 +20,16 @@ func NewChallenger(numberLeadingZeros, challengeNumberSymbols int32, solutionNum
 
 func (c *Challenger) GetChallenge() ChallengeInfo {
 	return ChallengeInfo{
-		RandomString:       generateCryptoRandomString(c.challengeNumberSymbols),
-		NumberLeadingZeros: c.numberLeadingZeros,
-		NumberSymbols:      c.solutionNumberSymbols,
+		RandomString:          generateCryptoRandomString(c.challengeNumberSymbols),
+		NumberLeadingZeros:    c.numberLeadingZeros,
+		SolutionNumberSymbols: c.solutionNumberSymbols,
 	}
 }
 
 func (c *Challenger) ValidateSolution(challenge ChallengeInfo, solution string) bool {
 	// all parameters get from challenge not from challenger because we can use range for zeros and length
-	if len(solution) != int(challenge.NumberSymbols) {
-		log.Printf("wrong number symbols in solution: %v, want: %v", len(solution), challenge.NumberSymbols)
+	if len(solution) != int(challenge.SolutionNumberSymbols) {
+		log.Printf("wrong number symbols in solution: %v, want: %v", len(solution), challenge.SolutionNumberSymbols)
 
 		return false
 	}

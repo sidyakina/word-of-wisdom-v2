@@ -31,7 +31,7 @@ func (s *Solver) SolveChallenge(challenge ChallengeInfo) (string, error) {
 		default:
 		}
 
-		solution = generateMathRandomString(challenge.NumberSymbols)
+		solution = generateMathRandomString(challenge.SolutionNumberSymbols)
 		numberAttempts++
 
 		if isValid(challenge.RandomString+solution, challenge.NumberLeadingZeros) {

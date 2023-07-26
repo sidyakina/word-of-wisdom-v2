@@ -78,9 +78,9 @@ func (c *Client) waitChallenge(serverConn net.Conn) (*challenger.ChallengeInfo, 
 	}
 
 	challenge := challenger.ChallengeInfo{
-		RandomString:       message.RandomString,
-		NumberLeadingZeros: message.NumberLeadingZeros,
-		NumberSymbols:      message.NumberSymbols,
+		RandomString:          message.RandomString,
+		NumberLeadingZeros:    message.NumberLeadingZeros,
+		SolutionNumberSymbols: message.SolutionNumberSymbols,
 	}
 
 	log.Printf("challenge received: %+v", challenge)

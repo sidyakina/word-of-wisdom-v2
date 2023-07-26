@@ -15,9 +15,9 @@ func TestChallenger_ValidateSolution(t *testing.T) {
 		{
 			name: "ok, hash = 00000bc... with 20 zeros = 20 wanted",
 			challenge: ChallengeInfo{
-				RandomString:       "randomstring",
-				NumberLeadingZeros: 20,
-				NumberSymbols:      7,
+				RandomString:          "randomstring",
+				NumberLeadingZeros:    20,
+				SolutionNumberSymbols: 7,
 			},
 			solution: "VuA8fgf",
 			want:     true,
@@ -25,9 +25,9 @@ func TestChallenger_ValidateSolution(t *testing.T) {
 		{
 			name: "ok, hash = 00000bc... with 20 zeros > 19 wanted",
 			challenge: ChallengeInfo{
-				RandomString:       "randomstring",
-				NumberLeadingZeros: 19,
-				NumberSymbols:      7,
+				RandomString:          "randomstring",
+				NumberLeadingZeros:    19,
+				SolutionNumberSymbols: 7,
 			},
 			solution: "VuA8fgf",
 			want:     true,
@@ -35,9 +35,9 @@ func TestChallenger_ValidateSolution(t *testing.T) {
 		{
 			name: "not ok, hash = 00000bc... with 20 zeros, but wanted 21 zeros",
 			challenge: ChallengeInfo{
-				RandomString:       "randomstring",
-				NumberLeadingZeros: 21,
-				NumberSymbols:      8,
+				RandomString:          "randomstring",
+				NumberLeadingZeros:    21,
+				SolutionNumberSymbols: 8,
 			},
 			solution: "VuA8fgf",
 			want:     false,
@@ -45,9 +45,9 @@ func TestChallenger_ValidateSolution(t *testing.T) {
 		{
 			name: "not ok, hash = 00000bc... with 20 zeros, but wanted 8 symbols",
 			challenge: ChallengeInfo{
-				RandomString:       "randomstring",
-				NumberLeadingZeros: 20,
-				NumberSymbols:      8,
+				RandomString:          "randomstring",
+				NumberLeadingZeros:    20,
+				SolutionNumberSymbols: 8,
 			},
 			solution: "VuA8fgf",
 			want:     false,
@@ -55,9 +55,9 @@ func TestChallenger_ValidateSolution(t *testing.T) {
 		{
 			name: "not ok, hash = 00000bc... with 20 zeros, but wanted 6 symbols",
 			challenge: ChallengeInfo{
-				RandomString:       "randomstring",
-				NumberLeadingZeros: 20,
-				NumberSymbols:      6,
+				RandomString:          "randomstring",
+				NumberLeadingZeros:    20,
+				SolutionNumberSymbols: 6,
 			},
 			solution: "VuA8fgf",
 			want:     false,

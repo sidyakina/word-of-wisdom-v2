@@ -73,9 +73,9 @@ type challengerMock struct {
 
 func (c *challengerMock) GetChallenge() challenger.ChallengeInfo {
 	return challenger.ChallengeInfo{
-		RandomString:       "randomstring",
-		NumberLeadingZeros: 7,
-		NumberSymbols:      8,
+		RandomString:          "randomstring",
+		NumberLeadingZeros:    7,
+		SolutionNumberSymbols: 8,
 	}
 }
 
@@ -111,13 +111,13 @@ func TestServer_HandleNewConnect(t *testing.T) {
 			clientSolutionMessage: []byte(`{"solution":"solution1"}`),
 			clientWriteErrors:     map[int32]error{1: nil, 2: nil},
 			wantChallenge: &challenger.ChallengeInfo{
-				RandomString:       "randomstring",
-				NumberLeadingZeros: 7,
-				NumberSymbols:      8,
+				RandomString:          "randomstring",
+				NumberLeadingZeros:    7,
+				SolutionNumberSymbols: 8,
 			},
 			wantSolution: "solution1",
 			wantMessages: []map[string]interface{}{
-				{"random_string": "randomstring", "number_leading_zeros": 7., "number_symbols": 8.},
+				{"random_string": "randomstring", "number_leading_zeros": 7., "solution_number_symbols": 8.},
 				{"quote": "wise words"},
 			},
 		},
@@ -130,13 +130,13 @@ func TestServer_HandleNewConnect(t *testing.T) {
 			clientSolutionMessage: []byte(`{"solution":"solution1"}`),
 			clientWriteErrors:     map[int32]error{1: nil, 2: nil},
 			wantChallenge: &challenger.ChallengeInfo{
-				RandomString:       "randomstring",
-				NumberLeadingZeros: 7,
-				NumberSymbols:      8,
+				RandomString:          "randomstring",
+				NumberLeadingZeros:    7,
+				SolutionNumberSymbols: 8,
 			},
 			wantSolution: "solution1",
 			wantMessages: []map[string]interface{}{
-				{"random_string": "randomstring", "number_leading_zeros": 7., "number_symbols": 8.},
+				{"random_string": "randomstring", "number_leading_zeros": 7., "solution_number_symbols": 8.},
 			},
 		},
 		{
@@ -148,13 +148,13 @@ func TestServer_HandleNewConnect(t *testing.T) {
 			clientSolutionMessage: []byte(`{"solution":"solution1"}`),
 			clientWriteErrors:     map[int32]error{1: nil, 2: nil},
 			wantChallenge: &challenger.ChallengeInfo{
-				RandomString:       "randomstring",
-				NumberLeadingZeros: 7,
-				NumberSymbols:      8,
+				RandomString:          "randomstring",
+				NumberLeadingZeros:    7,
+				SolutionNumberSymbols: 8,
 			},
 			wantSolution: "solution1",
 			wantMessages: []map[string]interface{}{
-				{"random_string": "randomstring", "number_leading_zeros": 7., "number_symbols": 8.},
+				{"random_string": "randomstring", "number_leading_zeros": 7., "solution_number_symbols": 8.},
 			},
 		},
 		{
@@ -168,7 +168,7 @@ func TestServer_HandleNewConnect(t *testing.T) {
 			wantChallenge:         nil,
 			wantSolution:          "",
 			wantMessages: []map[string]interface{}{
-				{"random_string": "randomstring", "number_leading_zeros": 7., "number_symbols": 8.},
+				{"random_string": "randomstring", "number_leading_zeros": 7., "solution_number_symbols": 8.},
 			},
 		},
 		{
@@ -182,7 +182,7 @@ func TestServer_HandleNewConnect(t *testing.T) {
 			wantChallenge:         nil,
 			wantSolution:          "",
 			wantMessages: []map[string]interface{}{
-				{"random_string": "randomstring", "number_leading_zeros": 7., "number_symbols": 8.},
+				{"random_string": "randomstring", "number_leading_zeros": 7., "solution_number_symbols": 8.},
 			},
 		},
 	}

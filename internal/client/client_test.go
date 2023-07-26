@@ -47,7 +47,7 @@ func (s *serverMock) handleConnect() {
 		return
 	}
 
-	_, _ = conn.Write([]byte(`{"random_string":"rstring1","number_leading_zeros":5,"number_symbols":3}`))
+	_, _ = conn.Write([]byte(`{"random_string":"rstring1","number_leading_zeros":5,"solution_number_symbols":3}`))
 
 	if s.closeBeforeSolution {
 		return
@@ -101,9 +101,9 @@ func TestClient_GetQuote(t *testing.T) {
 			wantQuote:                "quote1",
 			wantErr:                  false,
 			wantChallenge: &challenger.ChallengeInfo{
-				RandomString:       "rstring1",
-				NumberLeadingZeros: 5,
-				NumberSymbols:      3,
+				RandomString:          "rstring1",
+				NumberLeadingZeros:    5,
+				SolutionNumberSymbols: 3,
 			},
 			wantSolution: []byte(`{"solution":"solution1"}`),
 		},
@@ -117,9 +117,9 @@ func TestClient_GetQuote(t *testing.T) {
 			wantQuote:                "",
 			wantErr:                  true,
 			wantChallenge: &challenger.ChallengeInfo{
-				RandomString:       "rstring1",
-				NumberLeadingZeros: 5,
-				NumberSymbols:      3,
+				RandomString:          "rstring1",
+				NumberLeadingZeros:    5,
+				SolutionNumberSymbols: 3,
 			},
 			wantSolution: []byte(`{"solution":"solution1"}`),
 		},
@@ -133,9 +133,9 @@ func TestClient_GetQuote(t *testing.T) {
 			wantQuote:                "",
 			wantErr:                  true,
 			wantChallenge: &challenger.ChallengeInfo{
-				RandomString:       "rstring1",
-				NumberLeadingZeros: 5,
-				NumberSymbols:      3,
+				RandomString:          "rstring1",
+				NumberLeadingZeros:    5,
+				SolutionNumberSymbols: 3,
 			},
 			wantSolution: nil,
 		},
@@ -149,9 +149,9 @@ func TestClient_GetQuote(t *testing.T) {
 			wantQuote:                "",
 			wantErr:                  true,
 			wantChallenge: &challenger.ChallengeInfo{
-				RandomString:       "rstring1",
-				NumberLeadingZeros: 5,
-				NumberSymbols:      3,
+				RandomString:          "rstring1",
+				NumberLeadingZeros:    5,
+				SolutionNumberSymbols: 3,
 			},
 			wantSolution: []byte{}, // server tried to read, but there was nothing
 		},
